@@ -67,11 +67,10 @@ int main()
   for (t = 0; t < Ntime; t++)
   {
     Daoham(T, dT);
-    #pragma omp parallel 
     {
-      #pragma omp for
-    for (i = 0; i < M; i++)
-      *(T + i) = *(T + i) + D * dt * (*(dT + i));
+      #pragma omp parallel for
+      for (i = 0; i < M; i++)
+        *(T + i) = *(T + i) + D * dt * (*(dT + i));
     }
     Write2File(T, M);
   }

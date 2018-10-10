@@ -1,0 +1,1 @@
+Using OpenMP in parallel computing
